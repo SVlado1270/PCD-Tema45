@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="assets/pages/home.css">
+<webc-container controller="TodoListController" class="todo-container">
+    <header>
+        <h2>TODO Application</h2>
+    </header>
+
+    <hr>
+
+    <!-- Adding items -->
+    <section class="addition">
+        <label for="@item.id">Create your TODO:</label>
+        <input data-view-model="@item" data-tag="create-todo">
+    </section>
+
+    <!-- Render each item from the model -->
+    <section class="todos" data-for="@items" data-tag="items">
+        <div class="todo">
+            <label>
+                <input type="checkbox" data-view-model="@checkbox">
+            </label>
+            <input type="text" data-view-model="@input">
+        </div>
+
+        <div slot="no-data">{{ @no-data }}</div>
+    </section>
+
+    <div>
+        <input type="button" class="button" data-tag="deleted-todos" value="Deleted ToDos"></button>
+        <input type="button" class="button" data-tag="active-todos-1h" value="Last Hour Modified ToDos"></button>
+        <input type="button" class="button" data-tag="all-todos" value="All ToDos"></button>
+        <input type="button" class="button" data-tag="sort-date-desc" value="Sort by date DESC"></button>
+        <input type="button" class="button" data-tag="sort-date-asc" value="Sort by date ASC"></button>
+        <input type="button" class="button" data-tag="add-index-tstmp" value="Add index for timestamp field"></button>
+    </div>
+    <hr>
+
+    <footer>
+        <strong>HINTs:</strong>
+        <ul>
+            <li tabindex="0">Save: Unfocus or press <code>Tab</code>!</li>
+            <li>Edit: double click on TODO!</li>
+            <li>Delete: right click on TODO checkbox!</li>
+        </ul>
+    </footer>
+</webc-container>
